@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="dtl:datalistModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <!-- Optional meta-data about the model -->
+    <description>SIJ Datalist Model</description>
+    <author>avmcf</author>
+    <version>1.0</version>
+
+    <imports>
+        <!-- Import Alfresco Dictionary Definitions -->
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+        <!-- Import Alfresco Content Domain Model Definitions -->
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <!-- Import Alfresco Data List Model Definitions -->
+        <import uri="http://www.alfresco.org/model/datalist/1.0"   prefix="dl" />
+    </imports>
+
+    <!-- Custom namespace for the ACME company Data Lists-->
+    <namespaces>
+        <namespace uri="http://www.vconsulte.com/model/datalist/1.0" prefix="dtl"/>
+    </namespaces>
+    
+    <constraints>
+		<constraint name="dtl:tipoAudiencia" type="LIST">
+            <parameter name="allowedValues">
+                <list>
+                    <value>Contestação</value>
+                    <value>Instrução</value>
+                    <value>UNA</value>
+                    <value>Razões Finais</value>
+                    <value>Contestação P.S</value>
+                    <value>Razões Finais </value>
+                    <value>Unica</value>
+                    <value>Inicial</value>
+                    <value>Inicial ACP</value>
+                </list>
+            </parameter>
+        </constraint>
+        <constraint name="dtl:tribunais" type="LIST">
+            <parameter name="allowedValues">
+                <list>
+                    <value>1ª Região</value>
+                    <value>2ª Região</value>
+                    <value>3ª Região</value>
+                    <value>4ª Região</value>
+                    <value>5ª Região</value>
+                    <value>6ª Região</value>
+                    <value>7ª Região</value>
+                    <value>8ª Região</value>
+                    <value>9ª Região</value>
+                    <value>10ª Região</value>
+                    <value>11ª Região</value>
+                    <value>12ª Região</value>
+                    <value>13ª Região</value>
+                    <value>14ª Região</value>
+                    <value>15ª Região</value>
+                    <value>16ª Região</value>
+                    <value>17ª Região</value>
+                    <value>18ª Região</value>
+                    <value>19ª Região</value>
+                    <value>20ª Região</value>
+                    <value>21ª Região</value>
+                    <value>22ª Região</value>
+                    <value>23ª Região</value>
+                    <value>24ª Região</value>
+                </list>
+            </parameter>
+        </constraint>
+	
+	</constraints>
+
+    <types>
+        <!--
+            Data List Item Type for the custom project list
+            -->
+        <type name="dtl:audiencias">
+            <title>Planilha de Audiencias</title>
+            <parent>dl:dataListItem</parent>
+            <properties>
+                <property name="dtl:audTribunal">
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                    <default>6ª Região</default>
+                    <constraints>
+                    	<constraint ref="dtl:tribunais" />
+                    </constraints>
+                </property>
+                <property name="dtl:audVara">
+                    <type>d:text</type>
+                    <mandatory>true</mandatory>
+                </property>
+                <property name="dtl:audProcesso">
+                    <type>d:text</type>
+                </property>
+                <property name="dtl:audTipo">
+                    <type>d:text</type>
+                    <constraints>
+                    	<constraint ref="dtl:tipoAudiencia" />
+                    </constraints>
+                </property>
+                <property name="dtl:audDtAudiencia">
+                    <type>d:datetime</type>
+                </property>
+                <property name="dtl:audObservacao">
+                    <type>d:mltext</type>
+                </property>
+            </properties>
+            <associations>
+                <association name="dtl:audAdvogados">
+                    <source>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>cm:person</class>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </target>
+                </association>
+            </associations>
+        </type>
+    </types>
+
+</model>

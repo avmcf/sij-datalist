@@ -1,0 +1,90 @@
+<alfresco-config>
+    <!--
+        dtl:projectListItem type create form config
+        -->
+    <config evaluator="model-type" condition="dtl:audiencias">
+        <forms>
+            <!-- Create item form -->
+            <form>
+                <field-visibility>
+                    <show id="dtl:audTribunal" />
+                    <show id="dtl:audVara" />
+                    <show id="dtl:audProcesso" />
+                    <show id="dtl:audTipo" />
+                    <show id="dtl:audDtAudiencia" />
+                    <show id="dtl:audObservacao" />
+                    <show id="dtl:audAdvogados" />
+                </field-visibility>
+                <create-form template="../data-lists/forms/dataitem.ftl" />
+                <appearance>
+	                <field id="dtl:audTribunal">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audVara">
+	                	<control-param name="maxLength">32</control-param>
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audProcesso">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audTipo">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>	
+	                <field id="dtl:audDtAudiencia">
+	                	<control template="/org/alfresco/components/form/controls/date.ftl" />
+	                </field>
+	                <field id="dtl:audObservacao">
+	                	<control template="/org/alfresco/components/form/controls/textarea.ftl" />
+	                </field>
+	                <field id="dtl:audAdvogados">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+
+    <!--
+        dtl:projectListItem type edit form config
+    -->
+    <config evaluator="node-type" condition="dtl:audiencias">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="dtl:audTribunal" />
+                    <show id="dtl:audVara" />
+                    <show id="dtl:audProcesso" />
+                    <show id="dtl:audTipo" />
+                    <show id="dtl:audDtAudiencia" />
+                    <show id="dtl:audObservacao" />
+                    <show id="dtl:audAdvogados" />
+                </field-visibility>
+                <edit-form template="../data-lists/forms/dataitem.ftl" />
+                <appearance>
+                <field id="dtl:audTribunal">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audVara">
+	                	<control-param name="maxLength">32</control-param>
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audProcesso">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+	                <field id="dtl:audTipo">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>	
+	                <field id="dtl:audDtAudiencia">
+	                	<control template="/org/alfresco/components/form/controls/date.ftl" />
+	                </field>
+	                <field id="dtl:audObservacao">
+	                	<control template="/org/alfresco/components/form/controls/textarea.ftl" />
+	                </field>
+	                <field id="dtl:audAdvogados">
+	                	<control template="/org/alfresco/components/form/controls/textfield.ftl" />
+	                </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+</alfresco-config>
